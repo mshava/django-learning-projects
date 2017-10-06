@@ -1,0 +1,62 @@
+{% extends "class_based_views_application/basic_base.html" %}
+{% block body_block %}
+  <div class="jumbotron">
+    <div class="panel panel-primary">
+      <div align="center" class="panel-heading">
+        Welcome to school details page!
+      </div>
+      <div class="panel-body">
+        <h3 align="center" class="page-header">School</h3>
+        <div class="panel panel-info">
+          <div align="center" class="panel-heading">
+            School Details
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-hover table-striped">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>Name </th>
+                    <th>Principal </th>
+                    <th>Location </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ school_details.name }}</td>
+                    <td>{{ school_details.principal }}</td>
+                    <td>{{ school_details.location }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <h3 align="center" class="page-header">Students</h3>
+        <div class="panel panel-info">
+          <div align="center" class="panel-heading">
+            Student Details
+          </div>
+          <div class="panel-body">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>Name </th>
+                  <th>Age </th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for student in school_details.students.all %}
+                  <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.age }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
