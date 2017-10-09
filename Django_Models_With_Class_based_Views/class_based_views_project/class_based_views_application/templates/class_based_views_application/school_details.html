@@ -1,5 +1,6 @@
 {% extends "class_based_views_application/basic_base.html" %}
 {% block body_block %}
+
   <div class="jumbotron">
     <div class="panel panel-primary">
       <div align="center" class="panel-heading">
@@ -19,13 +20,19 @@
                     <th>Name </th>
                     <th>Principal </th>
                     <th>Location </th>
+                    <th>Create</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr class="success">
                     <td>{{ school_details.name }}</td>
                     <td>{{ school_details.principal }}</td>
                     <td>{{ school_details.location }}</td>
+                    <td><a class="btn btn-success" href="{% url 'class_based_views_application:create' %}">Create</a></td>
+                    <td><a class="btn btn-info" href="{% url 'class_based_views_application:update' pk=school_details.pk %}">Update</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'class_based_views_application:delete' pk=school_details.pk %}">Delete</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -47,7 +54,7 @@
               </thead>
               <tbody>
                 {% for student in school_details.students.all %}
-                  <tr>
+                  <tr class="success">
                     <td>{{ student.name }}</td>
                     <td>{{ student.age }}</td>
                   </tr>
@@ -59,4 +66,5 @@
       </div>
     </div>
   </div>
+
 {% endblock %}
