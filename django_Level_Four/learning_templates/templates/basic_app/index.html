@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+  {% block body_block %}
+
+    <h1 class="page-header font">Wecome to Index!</h1>
+    <ul class="list-group">
+      <li class="list-group-item active font">Index.html showing here!</li>
+      <li class="list-group-item active font">{{ text|cut:'world' }}</li>
+      <li class="list-group-item active font">{{ number|add:"99" }}</li>
+    </ul>
+
+  {% endblock %}
