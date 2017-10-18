@@ -7,7 +7,9 @@ class MovieAdmin(admin.ModelAdmin):
 	
 	search_fields = ['title', 'length']
 	
-	filter_list = ['rease_year', 'length', 'title']
+	list_filter = ['rease_year', 'length', 'title']
+	
+	list_desplay = ['title', 'rease_year', 'length']
 
 admin.site.register(models.Customer)
 admin.site.register(models.Movie, ModelAdmin)
